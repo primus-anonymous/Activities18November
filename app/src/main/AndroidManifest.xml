@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Activities18November">
         <activity
             android:name=".ui.CalculatorActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Activities18November.Second">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

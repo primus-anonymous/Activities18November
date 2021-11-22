@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_calculator.xml" value="0.20052083333333334" />
+        <entry key="../../Library/Android/sdk/platforms/android-30/data/res/drawable/btn_default_material.xml" value="0.24010416666666667" />
+        <entry key="../../Library/Android/sdk/platforms/android-30/data/res/drawable/btn_default_mtrl_shape.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout-land/activity_calculator.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-sw720dp-land/activity_calculator.xml" value="0.178515625" />
+        <entry key="app/src/main/res/layout-sw720dp/activity_calculator.xml" value="0.145703125" />
+        <entry key="app/src/main/res/layout/activity_calculator.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/actvity_second.xml" value="0.18958333333333333" />
       </map>

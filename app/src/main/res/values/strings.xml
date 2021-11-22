@@ -20,5 +20,7 @@
     <string name="key_minus">-</string>
     <string name="key_mult">*</string>
     <string name="key_div">/</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="toast_fired">Toast Fired!!</string>
 
 </resources>

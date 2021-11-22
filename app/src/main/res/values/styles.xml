@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalcKey" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/bullpen_3d</item>
+        <item name="android:layout_margin">@dimen/small_margin</item>
+        <item name="android:textSize">@dimen/key_size</item>
+        <item name="android:backgroundTint">@color/teal_200</item>
+    </style>
+
+    <style name="CalcKey.Operation">
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+
+</resources>

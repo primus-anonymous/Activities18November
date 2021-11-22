@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Приложение</string>
+    <string name="key_1">I</string>
+    <string name="key_2">II</string>
+    <string name="key_3">III</string>
+    <string name="key_4">IV</string>
+    <string name="key_5">V</string>
+    <string name="key_6">VI</string>
+    <string name="key_7">VII</string>
+    <string name="key_8">VIII</string>
+    <string name="key_9">IX</string>
+    <string name="key_0">N</string>
+    <string name="key_dot">,</string>
+</resources>

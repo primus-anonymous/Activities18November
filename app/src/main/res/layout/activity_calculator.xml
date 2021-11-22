@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/bg_default"
     tools:context=".ui.CalculatorActivity">
 
     <TextView
@@ -12,98 +14,113 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="72sp"
+        android:textSize="@dimen/calc_font_size"
         tools:text="100500" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:padding="@dimen/default_padding"
         android:columnCount="4">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_1"
+            style="@style/CalcKey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/key_1"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:text="@string/key_1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_2"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            app:cornerRadius="23dp"
+            app:elevation="22dp"
+            app:rippleColor="@color/black"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_3"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_plus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_plus"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey.Operation" />
 
         <Button
             android:id="@+id/key_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_4"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_5"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_6"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_minus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_minus"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey.Operation" />
 
         <Button
             android:id="@+id/key_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_7"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_8"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_9"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_mult"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_mult"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey.Operation" />
 
         <Button
             android:id="@+id/key_0"
@@ -112,22 +129,36 @@
             android:text="@string/key_0"
             android:layout_gravity="fill_horizontal"
             android:layout_columnSpan="2"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_dot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_dot"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey" />
 
         <Button
             android:id="@+id/key_div"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/key_div"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            style="@style/CalcKey.Operation" />
 
     </GridLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_name"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

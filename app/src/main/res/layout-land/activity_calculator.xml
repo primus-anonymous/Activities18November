@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg_default"
+        tools:context=".ui.CalculatorActivity">
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="@dimen/calc_font_size"
+            tools:text="100500" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="32dp"
+            android:columnCount="5">
+
+            <Button
+                android:id="@+id/key_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_1"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_2"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_3"
+                android:layout_columnWeight="1" />
+
+
+            <Button
+                android:id="@+id/key_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_4"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_plus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_plus"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_5"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_6"
+                android:layout_columnWeight="1" />
+
+
+            <Button
+                android:id="@+id/key_7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_7"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_8"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_minus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_minus"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_9"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_0"
+                android:layout_gravity="fill_horizontal"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_dot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_dot"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_mult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_mult"
+                android:layout_columnWeight="1" />
+
+            <Button
+                android:id="@+id/key_div"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/key_div"
+                android:layout_columnWeight="1" />
+
+        </GridLayout>
+
+        <CheckBox
+            android:id="@+id/change_theme_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theme One" />
+
+        <CheckBox
+            android:id="@+id/change_theme_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theme Two" />
+
+        <CheckBox
+            android:id="@+id/change_theme_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theme Three" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

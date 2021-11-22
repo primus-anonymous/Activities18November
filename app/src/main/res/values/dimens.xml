@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="key_size">18sp</dimen>
+    <dimen name="calc_font_size">72sp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="small_margin">4dp</dimen>
+</resources>
