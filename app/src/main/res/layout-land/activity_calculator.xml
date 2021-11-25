@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/bg_default"
-        tools:context=".ui.CalculatorActivity">
+        tools:context=".ui.calc.CalculatorActivity">
 
         <TextView
             android:id="@+id/result"
@@ -137,23 +137,12 @@
 
         </GridLayout>
 
-        <CheckBox
-            android:id="@+id/change_theme_one"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/choose_theme"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Theme One" />
-
-        <CheckBox
-            android:id="@+id/change_theme_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Theme Two" />
-
-        <CheckBox
-            android:id="@+id/change_theme_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Theme Three" />
+            android:text="@string/choose_theme"
+            android:layout_margin="@dimen/default_padding" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

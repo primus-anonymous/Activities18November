@@ -11,6 +11,8 @@ public class CounterSecond implements Parcelable {
 
     private String stringValue;
 
+    private Theme theme;
+
     public CounterSecond(int value) {
         this.value = value;
     }
@@ -51,5 +53,6 @@ public class CounterSecond implements Parcelable {
         dest.writeInt(value);
         dest.writeDouble(doubleValue);
         dest.writeString(stringValue);
+        dest.writeSerializable(theme);
     }
 }

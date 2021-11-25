@@ -1,50 +1,87 @@
-package com.neocaptainnemo.activities18november.ui;
+package com.neocaptainnemo.activities18november.ui.calc;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.neocaptainnemo.activities18november.R;
+import com.neocaptainnemo.activities18november.SuperReporitory;
 import com.neocaptainnemo.activities18november.domain.CalculatorImpl;
 import com.neocaptainnemo.activities18november.domain.Operation;
+import com.neocaptainnemo.activities18november.domain.Theme;
+import com.neocaptainnemo.activities18november.storage.ThemeStorage;
+import com.neocaptainnemo.activities18november.ui.theme.SelectThemeActivity;
 
 import java.util.HashMap;
-import java.util.Locale;
 
 public class CalculatorActivity extends AppCompatActivity implements CalculatorView {
 
-    private static final String ARG_SAVED_THEME = "ARG_SAVED_THEME";
+    private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Theme theme = (Theme) result.getData().getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+
+                storage.saveTheme(theme);
+
+                recreate();
+            }
+        }
+    });
     private TextView txtResult;
 
+    // private int currentTheme = R.style.Theme_Activities18November_Second;
     private CalculatorPresenter presenter;
 
-    // private int currentTheme = R.style.Theme_Activities18November_Second;
+    private ThemeStorage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        storage = new ThemeStorage(this);
+
+        Context me = this;
+
+        Context applicationContext = getApplicationContext();
+
+        SuperReporitory superReporitory = SuperReporitory.getInstance(getApplicationContext());
+
+//        LayoutInflater.from(me).inflate(R.layout.activity_calculator, null);
+//        LayoutInflater.from(applicationContext).inflate(R.layout.activity_calculator, null);
+
+
 //        if (savedInstanceState != null) {
 //            currentTheme = savedInstanceState.getInt(ARG_SAVED_THEME);
 //        }
 
-        setTheme(getSavedTheme());
+        setTheme(storage.getSavedTheme().getTheme());
 
         setContentView(R.layout.activity_calculator);
 
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
+        if (savedInstanceState != null) {
+            presenter.restoreState(savedInstanceState);
+        }
+
         txtResult = findViewById(R.id.result);
+
+        if (getIntent().hasExtra("hello")) {
+            txtResult.setText(getIntent().getStringExtra("hello"));
+        }
 
         findViewById(R.id.key_dot).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,103 +140,27 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         findViewById(R.id.key_minus).setOnClickListener(operandClickListener);
         findViewById(R.id.key_div).setOnClickListener(operandClickListener);
 
-        Locale locale = getResources().getConfiguration().locale;
-        int orientaion = getResources().getConfiguration().orientation;
 
-        if (orientaion == Configuration.ORIENTATION_LANDSCAPE) {
+        findViewById(R.id.choose_theme).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalculatorActivity.this, SelectThemeActivity.class);
+                intent.putExtra(SelectThemeActivity.EXTRA_THEME, storage.getSavedTheme());
 
-        } else {
+                launcher.launch(intent);
+            }
+        });
 
-        }
-
-        String appName = getResources().getString(R.string.app_name);
-        String appName2 = getString(R.string.app_name);
-
-        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_launcher_background);
-
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
-        view.findViewById(R.id.go_to_second);
-
-        float fontSize = getResources().getDimension(R.dimen.calc_font_size);
-
-        //txtResult.setTextSize(fontSize);
-
-        CheckBox one = findViewById(R.id.change_theme_one);
-        CheckBox two = findViewById(R.id.change_theme_two);
-        CheckBox three = findViewById(R.id.change_theme_three);
-
-        if (one != null) {
-            one.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    one.setChecked(true);
-                    two.setChecked(false);
-                    three.setChecked(false);
-
-                    saveTheme(R.style.Theme_Activities18November);
-
-                    recreate();
-
-                }
-            });
-        }
-
-        if (two != null) {
-            two.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    one.setChecked(false);
-                    two.setChecked(true);
-                    three.setChecked(false);
-
-                    saveTheme(R.style.Theme_Activities18November_Second);
-
-                    recreate();
-
-                }
-            });
-        }
-
-        if (three != null) {
-            three.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    one.setChecked(false);
-                    two.setChecked(false);
-                    three.setChecked(true);
-
-                    saveTheme(R.style.Theme_Activities18November_Third);
-
-                    recreate();
-
-                }
-            });
-        }
     }
 
-    private void saveTheme(int theme) {
-        SharedPreferences sharedPreferences = getSharedPreferences("Themes", Context.MODE_PRIVATE);
 
-        sharedPreferences.edit()
-                .putInt(ARG_SAVED_THEME, theme)
-                .apply();
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        presenter.onSaveState(outState);
+
     }
-
-    private int getSavedTheme() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Themes", Context.MODE_PRIVATE);
-
-        return sharedPreferences.getInt(ARG_SAVED_THEME, R.style.Theme_Activities18November);
-    }
-
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//
-//        outState.putInt(ARG_SAVED_THEME, currentTheme);
-//    }
 
     @Override
     public void showResult(String value) {

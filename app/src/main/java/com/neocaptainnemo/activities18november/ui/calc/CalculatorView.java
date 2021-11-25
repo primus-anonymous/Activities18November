@@ -1,4 +1,4 @@
-package com.neocaptainnemo.activities18november.ui;
+package com.neocaptainnemo.activities18november.ui.calc;
 
 public interface CalculatorView {
 

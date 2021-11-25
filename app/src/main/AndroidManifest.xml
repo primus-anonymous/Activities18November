@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.neocaptainnemo.activities18november">
+    package="com.neocaptainnemo.activities18november" >
 
     <application
+        android:name=".CalcApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Activities18November">
+        android:theme="@style/Theme.Activities18November" >
         <activity
-            android:name=".ui.CalculatorActivity"
+            android:name=".ui.theme.SelectThemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.calc.CalculatorActivity"
             android:exported="true"
-            android:theme="@style/Theme.Activities18November.Second">
+            android:theme="@style/Theme.Activities18November.Second" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="calc"
+                    android:host="launch" />
+
+                <!-- calc://launch -->
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity android:name=".SecondActivity" />
     </application>

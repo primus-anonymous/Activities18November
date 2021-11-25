@@ -22,5 +22,11 @@
     <string name="key_div">/</string>
     <string name="change_theme">Change Theme</string>
     <string name="toast_fired">Toast Fired!!</string>
+    <string name="theme_one">Theme One</string>
+    <string name="theme_two">Two</string>
+    <string name="theme_three">Three</string>
+    <string name="theme_four">Four</string>
+    <string name="choose_theme">Choose Theme</string>
+    <string name="open_browser">Open Browser</string>
 
 </resources>
